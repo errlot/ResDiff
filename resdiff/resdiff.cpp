@@ -9,7 +9,10 @@ void diff_string_maps(FILE* out, const map<wstring, wstring> & new_map, const ma
 int wmain(int argc, wchar_t* argv[])
 {
 	wprintf_s(L"\n ResDiff v0.2 https://github.com/WalkingCat/ResDiff\n\n");
-
+	
+	// Setting locale
+	_wsetlocale(LC_ALL, L"");
+	
 	const auto& params = init_diff_params(argc, argv);
 
 	if (params.show_help || (!params.error.empty()) || (params.new_files_pattern.empty() && params.old_files_pattern.empty())) {
